@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Nasze Sklepy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background: #222;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 22px;
+    }
+
+    #map {
+      height: 70vh;
+    }
+
+    .info {
+      padding: 15px;
+      background: #f5f5f5;
+      text-align: center;
+    }
+
+    a.button {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 6px 10px;
+      background: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  🛍️ Nasze sklepy odzieży używanej
+</header>
+
+<div id="map"></div>
+
+<div class="info">
+  Kliknij na sklep na mapie, aby zobaczyć szczegóły 📍
+</div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+  var map = L.map('map').setView([50.2945, 18.6714], 11);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap'
+  }).addTo(map);
+
+  var shops = [
+    {
+      name: "Ciuszek",
+      coords: [50.3249, 18.6700],
+      address: "Ul. Jowisza 34, Gliwice",
+      page: "shop1.html"
+    },
+    {
+      name: "Textil",
+      coords: [50.3000, 18.6760],
+      address: "Ul. Dworcowa 22-1, Gliwice",
+      page: "shop2.html"
+    },
+    {
+      name: "Textil II",
+      coords: [50.2160, 18.5610],
+      address: "Ul. Rynek 7, Pilchowice",
+      page: "shop3.html"
+    },
+    {
+      name: "Textil III",
+      coords: [50.3480, 18.9150],
+      address: "Ul. Gliwicka 12, Bytom",
+      page: "shop4.html"
+    }
+  ];
+
+  shops.forEach(shop => {
+    L.marker(shop.coords).addTo(map)
+      .bindPopup(`
+        <b>${shop.name}</b><br>
+        ${shop.address}<br>
+        <a class="button" href="${shop.page}">Zobacz szczegóły</a>
+      `);
+  });
+</script>
+
+</body>
+</html>

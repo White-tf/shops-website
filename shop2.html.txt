@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Textil</title>
+
+<style>
+  body { font-family: Arial; margin: 0; background: #f4f4f4; }
+  header { background: #222; color: white; padding: 15px; text-align: center; }
+  .container { padding: 20px; }
+  .card { background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px; }
+  .important { color: red; font-weight: bold; }
+</style>
+</head>
+
+<body>
+
+<header>🏪 Textil</header>
+
+<div class="container">
+
+<div class="card">
+<h3>📍 Adres</h3>
+<p>Ul. Dworcowa 22-1, Gliwice</p>
+</div>
+
+<div class="card">
+<h3>🕒 Godziny otwarcia</h3>
+<p>Pon–Pt: 9:00 – 17:00</p>
+<p>Sobota: 9:00 – 14:00</p>
+</div>
+
+<div class="card">
+<h3>♻️ Dostawa towaru</h3>
+<p>Każdy wtorek</p>
+</div>
+
+<div class="card important">
+<h3>⚠️ Informacja specjalna</h3>
+<p id="special"></p>
+</div>
+
+<a href="index.html">⬅ Wróć do mapy</a>
+
+</div>
+
+<script>
+var specialNote = "Brak zmian";
+document.getElementById("special").innerText = specialNote;
+</script>
+
+</body>
+</html>
